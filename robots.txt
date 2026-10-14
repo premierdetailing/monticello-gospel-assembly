@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /404
+Disallow: /post
+Disallow: /api/
+
+Sitemap: https://mgalenexa.org/sitemap.xml
