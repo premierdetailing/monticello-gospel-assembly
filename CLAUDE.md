@@ -24,9 +24,14 @@ Every time:
 2. Make the change.
 3. Check it: open the page you changed and read it back. Change **every** page that shows the thing
    (see "Things that appear on every page" below).
-4. Publish without asking: `git add -A && git commit -m "<short plain summary>" && git push`
-5. Wait about 30 seconds, then load the live page on https://mgalenexa.org and confirm the change is
-   really there before telling Pastor Clark it is done.
+4. Publish without asking: `git add -A && git commit -m "<short plain summary>"`, then push.
+   - If you are allowed to push to `main`, push to `main`.
+   - If this session only lets you push to its own `claude/...` branch, push that branch. A GitHub
+     Action (`.github/workflows/publish-claude-edits.yml`) moves it onto `main` by itself within a
+     minute. Do not open a pull request and do not ask Pastor Clark to merge anything.
+5. Wait about 1–2 minutes, then load the live page on https://mgalenexa.org (add `?v=` and any
+   number to the end of the address to skip the cache) and confirm the change is really there before
+   telling Pastor Clark it is done. If it is not live after 3 minutes, tell him to text Joe.
 
 If git ever shows a merge conflict, **stop** and tell Pastor Clark to text Joe. Do not guess.
 

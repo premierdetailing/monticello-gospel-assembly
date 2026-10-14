@@ -1,0 +1,32 @@
+# Pastor Clark's Claude may only be allowed to push to its own claude/... branch.
+# This moves any push on a claude/ branch onto main, and main is what Vercel puts live on mgalenexa.org.
+name: Publish Claude edits
+on:
+  push:
+    branches: ['claude/**']
+permissions:
+  contents: write
+concurrency:
+  group: publish-main
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Put the change on main
+        env:
+          AUTHOR_NAME: ${{ github.event.head_commit.author.name }}
+          AUTHOR_EMAIL: ${{ github.event.head_commit.author.email }}
+        run: |
+          git config user.name "$AUTHOR_NAME"
+          git config user.email "$AUTHOR_EMAIL"
+          git fetch origin main
+          if git merge-base --is-ancestor origin/main HEAD; then
+            git push origin HEAD:main
+          else
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
