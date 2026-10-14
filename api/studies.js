@@ -11,7 +11,8 @@ const A = "<!--STUDIES-->", B = "<!--/STUDIES-->";
 const swapRegion = (html, inner) => html.slice(0, html.indexOf(A)) + inner + html.slice(html.indexOf(B) + B.length);
 
 function listPage(studies) {
-  if (!studies.length) return TPL;  // keeps the "No studies yet" shelf
+  // No studies yet: keep the shelf, but ask search engines not to index an empty page.
+  if (!studies.length) return TPL.replace('<link rel="canonical"', '<meta name="robots" content="noindex, follow">\n<link rel="canonical"');
   const items = studies.map((s) => `<li><a href="/studies/${esc(s.slug)}">
       <span class="sdate">${esc(fmtDate(s.date))}${s.ref ? " · " + esc(s.ref) : ""}</span>
       <strong>${esc(s.title)}</strong>
