@@ -450,3 +450,19 @@ main>section:not(.alt)>*{position:relative;z-index:1}
 /* 14 Oct: real welcome note (no dashed placeholder box); logo in the pastor frame until his photo arrives */
 .note.welcome{border:0;padding:0;background:none;color:var(--body);font-size:19px}
 .ph.ph-mark{border:1px solid var(--line);background:var(--sky)}.ph.ph-mark svg{width:52%;height:auto}
+
+/* 14 Oct: church shop (navy items first); photos self-hosted in /img/shop */
+.shop .btn{margin-top:20px}
+.shopstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.shopstrip img{border-radius:18px 18px 18px 6px;background:#fff;box-shadow:0 10px 22px -18px rgba(20,30,50,.6)}
+.ph-head .acts{justify-self:start}
+.pgrid{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:28px 24px}
+.pcard{display:flex;flex-direction:column;height:100%;text-decoration:none;color:var(--body);background:#fff;border-radius:28px 28px 28px 10px;padding:12px 12px 22px;box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .2s,transform .2s}
+.pcard:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1px rgba(36,70,122,.25),var(--shadow)}
+.pcard img{border-radius:20px 20px 20px 6px;background:#F4F6F9;aspect-ratio:3/4;object-fit:cover;width:100%}
+.pname{font:700 19px/1.25 var(--serif);color:var(--ink);margin:16px 8px 0}
+.pprice{font:600 17px/1 var(--sans);color:var(--navy);margin:8px 8px 0}
+.pdesc{font-size:16px;line-height:1.5;color:var(--mute);margin:10px 8px 0}
+.pnote{margin-top:36px;color:var(--mute);font-size:17px;max-width:60ch}
+@media (max-width:600px){.pgrid{grid-template-columns:1fr 1fr;gap:16px 12px}.pcard{padding:8px 8px 16px;border-radius:20px 20px 20px 8px}.pname{font-size:16px;margin:12px 4px 0}.pprice{font-size:15px;margin:6px 4px 0}.pdesc{display:none}.ph-head .acts .btn{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.pcard:hover{transform:none}}
