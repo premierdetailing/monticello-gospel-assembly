@@ -56,7 +56,7 @@ If one of these changes, change it in all of those places.
 Current facts (only change these when Pastor Clark says so):
 - Phone (call or text): (913) 669-3091
 - Sunday 11:00 AM · Wednesday 7:30 PM
-- Children's class on Sundays
+- Children's class on select Sundays
 - Church meal in the dining room after service, the **last Sunday of every month**
 - Giving: Venmo @MGALENEXA
 - Pastors: David Winters (Founder), CW Beck (Former pastor), Tony Clark (Pastor)

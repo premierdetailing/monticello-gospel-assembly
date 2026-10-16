@@ -449,6 +449,9 @@ main>section:not(.alt)>*{position:relative;z-index:1}
 
 /* 14 Oct: real welcome note (no dashed placeholder box); logo in the pastor frame until his photo arrives */
 .note.welcome{border:0;padding:0;background:none;color:var(--body);font-size:19px}
+.welcome-note .note.welcome+.note.welcome{margin-top:14px}
+.note.welcome.verse{font:italic 400 19px/1.45 var(--serif);color:var(--ink)}
+.note.welcome.verse cite{display:block;font:400 14px/1.4 var(--sans);font-style:normal;color:var(--mute);margin-top:4px}
 .ph.ph-mark{border:1px solid var(--line);background:var(--sky)}.ph.ph-mark svg{width:52%;height:auto}
 
 /* 14 Oct: church shop (navy items first); photos self-hosted in /img/shop */
