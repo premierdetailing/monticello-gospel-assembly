@@ -469,3 +469,14 @@ main>section:not(.alt)>*{position:relative;z-index:1}
 .pnote{margin-top:36px;color:var(--mute);font-size:17px;max-width:60ch}
 @media (max-width:600px){.pgrid{grid-template-columns:1fr 1fr;gap:16px 12px}.pcard{padding:8px 8px 16px;border-radius:20px 20px 20px 8px}.pname{font-size:16px;margin:12px 4px 0}.pprice{font-size:15px;margin:6px 4px 0}.pdesc{display:none}.ph-head .acts .btn{width:100%;justify-content:center}}
 @media (prefers-reduced-motion:reduce){.pcard:hover{transform:none}}
+
+/* 27 Oct: pastor photo fills the full height beside the welcome note, as one card */
+#pastor .pastor{grid-template-columns:minmax(300px,5fr) 7fr;gap:0;padding:0;width:calc(100% - 40px);max-width:1120px;align-items:stretch;background:#fff;border-radius:44px 12px 44px 12px;box-shadow:0 0 0 1px var(--line),0 28px 60px -30px rgba(27,53,96,.4);overflow:hidden}
+#pastor .pastor>.ph{width:100%;height:100%;min-height:440px;aspect-ratio:auto;border-radius:0;object-position:50% 22%;background:var(--sky)}
+#pastor .pastor>div{padding:clamp(32px,4.5vw,60px);border-left:4px solid var(--gold)}
+#pastor .note.welcome{max-width:62ch}
+@media (max-width:800px){
+  #pastor .pastor{grid-template-columns:1fr;border-radius:32px 32px 32px 10px}
+  #pastor .pastor>.ph{height:auto;min-height:0;aspect-ratio:1/1;object-position:50% 30%}
+  #pastor .pastor>div{padding:28px 22px 32px;border-left:0;border-top:4px solid var(--gold)}
+}
