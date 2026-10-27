@@ -480,3 +480,10 @@ main>section:not(.alt)>*{position:relative;z-index:1}
   #pastor .pastor>.ph{height:auto;min-height:0;aspect-ratio:1/1;object-position:50% 30%}
   #pastor .pastor>div{padding:28px 22px 32px;border-left:0;border-top:4px solid var(--gold)}
 }
+
+.tagline{white-space:nowrap;font-family:var(--serif);font-weight:700}
+.h2.tagline{font-size:clamp(24px,6.6vw,42px)}
+.tg-word{color:#A8651F}
+.tg-spirit{color:#C8102E;font-style:italic}
+.ph-head .tagline .tg-word{color:#E8B46A}
+.ph-head .tagline .tg-spirit{color:#FF7A8C}
