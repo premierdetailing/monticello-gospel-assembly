@@ -483,7 +483,7 @@ main>section:not(.alt)>*{position:relative;z-index:1}
 
 .tagline{white-space:nowrap;font-family:var(--serif);font-weight:700}
 .h2.tagline{font-size:clamp(24px,6.6vw,42px)}
-.tg-word{color:#A8651F}
+.tg-word{color:var(--gold-t)}
 .tg-spirit{color:var(--navy)}
-.ph-head .tagline .tg-word{color:#E8B46A}
+.ph-head .tagline .tg-word{color:var(--gold)}
 .ph-head .tagline .tg-spirit{color:#fff}
