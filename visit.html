@@ -80,7 +80,7 @@
   <h2 class="h2">Stay for lunch</h2>
   <div class="together">
     <div class="meal" data-date="2026-11-01"><div class="cal" aria-hidden="true"><b>Nov</b><strong>1</strong></div><p>Church meal in the dining room after service.</p></div>
-    <div class="meal"><div class="cal" aria-label="November 8"><b>Nov</b><strong>8</strong></div><p>Children’s class on select Sundays</p></div>
+    <div class="meal" data-kids><div class="cal" aria-label="November 8"><b>Nov</b><strong>8</strong></div><p>Children’s class on select Sundays</p></div>
     <div class="meal"><div class="fork" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3v8a2 2 0 0 0 4 0V3M9 11v10M16 3c-2 2-2 6 0 8v10"/></svg></div><p>After Sunday service, we often go out to eat together.</p></div>
   </div>
 </div></section>
@@ -109,6 +109,13 @@ document.querySelectorAll('.meal[data-date]').forEach(m=>{
   if(d.toISOString().slice(0,10)<t)d=mo===12?ls(y+1,1):ls(y,mo+1);
   m.querySelector('.cal b').textContent=d.toLocaleString('en-US',{month:'short',timeZone:'UTC'});
   m.querySelector('.cal strong').textContent=d.getUTCDate();
+});
+/* children's class date: shows Nov 8, then Nov 22 starting Nov 9 (Central time) */
+document.querySelectorAll('.meal[data-kids]').forEach(m=>{
+  const t=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago'}).format(new Date());
+  if(t<'2026-11-09')return;
+  m.querySelector('.cal').setAttribute('aria-label','November 22');
+  m.querySelector('.cal strong').textContent='22';
 });
 </script>
 </body>
