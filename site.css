@@ -174,8 +174,7 @@ section{padding-block:80px;position:relative}
 .creed li{display:grid;grid-template-columns:72px 1fr;gap:26px;align-items:center;padding:26px 0}
 .creed li+li{border-top:1px solid var(--line)}
 .creed b{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;font:700 30px/1 var(--serif);color:#fff;background:var(--navy)}
-.creed li:nth-child(2) b{background:var(--gold);color:var(--ink)}
-.creed li:nth-child(3) b{background:#fff;color:var(--navy);box-shadow:inset 0 0 0 3px var(--navy)}
+.creed li b{background:var(--gold);color:var(--ink)}
 .creed strong{font:700 clamp(24px,2.8vw,32px)/1.2 var(--serif);color:var(--ink)}
 .tag{display:inline-block;margin-top:22px;padding:9px 18px;border-radius:999px;background:var(--sky);color:var(--navy);font:700 16px/1 var(--sans)}
 .verse{background:var(--navy) radial-gradient(ellipse 60% 90% at 50% 0%,rgba(255,255,255,.07),transparent 70%);color:#fff;border-radius:999px 999px 40px 40px/360px 360px 40px 40px;margin-inline:clamp(12px,3vw,40px);padding:clamp(80px,9vw,120px) 24px clamp(56px,6vw,80px);text-align:center}
@@ -326,8 +325,7 @@ main>section:not([class]):not([id]){background:radial-gradient(ellipse 50% 70% a
 .facts i,.cal{background:radial-gradient(circle at 35% 28%,#fff 0%,#F2F6FB 70%);box-shadow:inset 0 0 0 2px var(--navy),0 8px 16px -10px rgba(27,53,96,.45)}
 .cal{box-shadow:inset 0 0 0 3px var(--navy),0 10px 20px -12px rgba(27,53,96,.45)}
 .fork,.creed b{background:radial-gradient(circle at 35% 28%,#2E5694 0%,var(--navy) 70%);box-shadow:0 10px 20px -12px rgba(27,53,96,.7)}
-.creed li:nth-child(2) b{background:radial-gradient(circle at 35% 28%,#E9B45A 0%,var(--gold) 70%);box-shadow:0 10px 20px -12px rgba(138,90,18,.6)}
-.creed li:nth-child(3) b{background:radial-gradient(circle at 35% 28%,#fff 0%,#F2F6FB 70%);box-shadow:inset 0 0 0 3px var(--navy),0 10px 20px -12px rgba(27,53,96,.45)}
+.creed li b{background:radial-gradient(circle at 35% 28%,#E9B45A 0%,var(--gold) 70%);box-shadow:0 10px 20px -12px rgba(138,90,18,.6)}
 .beliefs li{box-shadow:0 10px 24px -20px rgba(27,53,96,.55)}
 .beliefs li::before{background-color:transparent;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.5 3h3v5h5v3h-5v6h-3v-6h-5V8h5z' fill='%23fff'/%3E%3C/svg%3E"),radial-gradient(circle at 35% 28%,#E9B45A 0%,var(--gold) 70%);background-position:center,center;background-size:18px,100%;background-repeat:no-repeat;box-shadow:0 6px 12px -8px rgba(138,90,18,.7)}
 .line i{background:radial-gradient(circle at 35% 28%,#fff 0%,#F2F6FB 70%)}
