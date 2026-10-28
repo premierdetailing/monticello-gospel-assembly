@@ -488,3 +488,7 @@ main>section:not(.alt)>*{position:relative;z-index:1}
 
 /* "Under construction" label on beliefs */
 .creed .soon{display:block;width:max-content;margin-top:10px;padding:7px 14px;border-radius:999px;background:linear-gradient(180deg,#F1F6FB,var(--sky));color:var(--navy);font:700 14px/1 var(--sans);letter-spacing:.02em;box-shadow:0 6px 12px -8px rgba(27,53,96,.6)}
+/* 27 Oct: under-construction pill on home page beliefs list */
+.beliefs .soon{margin-left:auto;flex:none;padding:6px 12px;border-radius:999px;background:linear-gradient(180deg,#F1F6FB,var(--sky));color:var(--navy);font:700 13px/1 var(--sans);letter-spacing:.02em;box-shadow:0 6px 12px -8px rgba(27,53,96,.6)}
+.beliefs .soon+*,.beliefs li a:has(.soon)::after{margin-left:0}
+@media (max-width:520px){.beliefs li a:has(.soon){flex-wrap:wrap}}
