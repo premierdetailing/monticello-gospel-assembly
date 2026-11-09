@@ -30,7 +30,7 @@
 <link rel="preload" href="/fonts/libre-caslon-display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site.css">
-<link rel="stylesheet" href="/churches.css">
+<link rel="stylesheet" href="/churches.css?v=acbcbd9f">
 <link rel="preload" href="/data/churches.json" as="fetch" crossorigin>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Church","@id":"https://mgalenexa.org/#church","name":"Monticello Gospel Assembly","url":"https://mgalenexa.org/","description":"A nondenominational church in Lenexa, Kansas.","logo":"https://mgalenexa.org/img/icon-512.png","image":"https://mgalenexa.org/img/og-mountain.jpg","telephone":"+1-913-669-3091","email":"mga9200@gmail.com","address":{"@type":"PostalAddress","streetAddress":"9200 Hedge Lane Terrace","addressLocality":"Lenexa","addressRegion":"KS","postalCode":"66227","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":38.9617004,"longitude":-94.8542788},"hasMap":"https://www.google.com/maps/search/?api=1&query=Monticello+Gospel+Assembly&query_place_id=ChIJ-QDBWyiXwIcRc8tNvuFPpNo","sameAs":["https://www.facebook.com/p/Monticello-Gospel-Assembly-100066379333484/"]},{"@type":"WebSite","@id":"https://mgalenexa.org/#website","url":"https://mgalenexa.org/","name":"Monticello Gospel Assembly","publisher":{"@id":"https://mgalenexa.org/#church"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://mgalenexa.org/churches#webpage","url":"https://mgalenexa.org/churches","name":"Churches & Live Streams | Monticello Gospel Assembly","description":"Find a Gospel Assembly church near you: service times, addresses, pastors and live streams from more than 300 churches, with what is live right now.","isPartOf":{"@id":"https://mgalenexa.org/#website"},"about":{"@id":"https://mgalenexa.org/#church"},"inLanguage":"en-US","primaryImageOfPage":{"@type":"ImageObject","url":"https://mgalenexa.org/img/og-mountain.jpg"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mgalenexa.org/"},{"@type":"ListItem","position":2,"name":"Churches & Live Streams","item":"https://mgalenexa.org/churches"}]}]}</script>
 </head>
@@ -46,88 +46,114 @@
   <button class="menu-btn" aria-expanded="false" aria-controls="nav1" id="menu1">Menu</button>
   <nav class="nav" id="nav1" aria-label="Main"><a href="/">Home</a><a href="/visit">Visit</a><a href="/believe">Beliefs</a><a href="/studies">Studies</a><a href="/churches" aria-current="page">Churches</a><a href="/shop">Shop</a><a href="/contact">Contact</a></nav>
 </div></header>
-<main id="main">
+
+<main id="main" class="chp">
 <div class="ch-top"><div class="wrap">
   <h1>Churches &amp; live streams</h1>
-  <p class="ch-lede">Watch a service from home, find a church, or plan one into your trip.</p>
-</div></div>
-
-<div class="modes" id="modes"><div class="wrap">
-  <div class="mode-row" role="tablist" aria-label="What do you want to do?">
-    <button role="tab" data-mode="watch" aria-selected="true"><span class="mi mi-live"></span><span><b>Watch live</b><small id="liveSub">Streams now and coming up</small></span></button>
-    <button role="tab" data-mode="find" aria-selected="false"><span class="mi"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><span><b>Find a church</b><small>Search, near me, map</small></span></button>
-    <button role="tab" data-mode="trip" aria-selected="false"><span class="mi"><svg viewBox="0 0 24 24"><path d="M4 19c4 0 3-7 8-7s4-7 8-7"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="5" r="2"/></svg></span><span><b>Plan a trip</b><small>Churches along the way</small></span></button>
+  <p class="ch-lede">Watch a service from home, find a church near you, or find churches on a trip.</p>
+  <div class="tsz" role="group" aria-label="Text size">
+    <span>Text size</span>
+    <button type="button" data-z="1" aria-pressed="true" aria-label="Normal text">A</button>
+    <button type="button" data-z="1.15" aria-pressed="false" aria-label="Large text">A</button>
+    <button type="button" data-z="1.3" aria-pressed="false" aria-label="Extra large text">A</button>
   </div>
 </div></div>
 
+<nav class="modes" id="modes" aria-label="What do you want to do?"><div class="wrap">
+  <div class="mode-row">
+    <a href="#watch" data-mode="watch" aria-current="page"><span class="mi mi-live" aria-hidden="true"></span><b>Watch live</b></a>
+    <a href="#find" data-mode="find"><span class="mi" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><b>Find a church</b></a>
+    <a href="#trip" data-mode="trip"><span class="mi" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19c4 0 3-7 8-7s4-7 8-7"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="5" r="2"/></svg></span><b>Plan a trip</b></a>
+  </div>
+</div></nav>
+
 <!-- WATCH -->
-<section class="panel" id="p-watch"><div class="wrap">
-  <h2 class="pnl-h">Live now <span class="cnt" id="liveN">0</span></h2>
-  <div id="liveList"></div>
-  <h2 class="pnl-h">Coming up</h2>
+<section class="panel" id="p-watch" aria-labelledby="h-watch"><div class="wrap">
+  <div class="pnl-intro">
+    <h2 id="h-watch">Watch a service from home</h2>
+    <p>Find a church below and press its <b>Watch</b> button. The service opens on YouTube, Facebook or the church's own website.</p>
+    <p class="tzline">All times are <b>your time</b><span id="tzName"></span>.</p>
+  </div>
+  <h3 class="sec-h"><span class="dot-live" aria-hidden="true"></span>On now <span class="cnt" id="liveN">0</span></h3>
+  <div id="liveList" aria-live="polite"></div>
+  <h3 class="sec-h">Coming up</h3>
   <div id="upList"></div>
-  <button class="morebtn" type="button" id="upMore" hidden>Show more days</button>
-  <p class="fine">Times are in your time zone. Only churches that share a stream link are listed. Others may stream on Facebook; find them under Find a church.</p>
+  <button class="bigbtn" type="button" id="upMore" hidden>Show the rest of the week</button>
+  <div class="pnl-note">
+    <p><b>The video isn't showing?</b> Churches often start the stream a few minutes after the service time. Wait a minute, then refresh the church's page.</p>
+    <p>Only the <span id="lsCount">38</span> churches that list a stream link are shown here. Many others post on Facebook. Use <a href="#find" data-mode="find">Find a church</a> to look one up.</p>
+  </div>
 </div></section>
 
 <!-- FIND -->
-<section class="panel" id="p-find" hidden>
-  <div class="ch-bar" id="bar"><div class="wrap">
-    <div class="ch-row">
-      <label class="f-q"><span class="vh">Search churches</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <input id="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="City, church, or pastor">
-      </label>
-      <label class="f-s"><span class="vh">State or country</span><select id="state"><option value="">All places</option></select></label>
-    </div>
-    <div class="chips-row">
-      <button class="chip" type="button" id="nearBtn" aria-pressed="false">Near me</button>
-      <button class="chip" type="button" id="mapBtn" aria-pressed="false">Map</button>
-      <button class="chip" type="button" id="streamBtn" aria-pressed="false">Streams online</button>
-    </div>
-    <nav class="jump" id="jump" aria-label="Jump to a state"></nav>
-  </div></div>
-  <div class="wrap">
-    <p class="result-line" id="resultLine" aria-live="polite"></p>
-    <div class="map-wrap" id="mapWrap" hidden>
-      <svg id="usmap" viewBox="0 0 975 610" role="img" aria-labelledby="mapT"><title id="mapT">Gospel Assembly churches across the United States</title><path id="land"/><path id="borders"/><g id="dots"></g></svg>
-      <div class="map-key"><span><i class="k-dot"></i>Church</span><span><i class="k-dot k-live"></i>Streams online</span><span><i class="k-dot k-home"></i>Monticello</span><span>Tap a dot to open that church.</span></div>
-    </div>
-    <div id="results"></div>
+<section class="panel" id="p-find" hidden aria-labelledby="h-find"><div class="wrap">
+  <div class="pnl-intro">
+    <h2 id="h-find">Find a church</h2>
+    <p>Type a town, a church name or a pastor's name. Or press <b>Churches near me</b>.</p>
   </div>
-</section>
+  <form class="search" id="findForm" role="search" autocomplete="off">
+    <label for="q" class="lbl">Search</label>
+    <div class="sbox">
+      <div class="qwrap"><input id="q" type="search" enterkeyhint="search" placeholder="For example: Lenexa, or Tony Clark"><button type="button" class="clr" id="qClear" aria-label="Clear search" hidden>&times;</button></div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
+  <div class="tools">
+    <button class="tbtn" type="button" id="nearBtn" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Churches near me</span></button>
+    <button class="tbtn" type="button" id="streamBtn" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z"/></svg><span>Only churches that stream</span></button>
+    <button class="tbtn" type="button" id="mapBtn" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg><span>Show map</span></button>
+  </div>
+  <div class="pick">
+    <label for="state" class="lbl">Or choose a state</label>
+    <select id="state"><option value="">All states and countries</option></select>
+  </div>
+  <p class="result-line" id="resultLine" role="status"></p>
+  <div class="map-wrap" id="mapWrap" hidden>
+    <svg id="usmap" viewBox="0 0 975 610" role="img" aria-labelledby="mapT"><title id="mapT">Gospel Assembly churches across the United States</title><path id="land"/><path id="borders"/><g id="dots"></g></svg>
+    <div class="map-key"><span><i class="k-dot"></i>Church</span><span><i class="k-dot k-live"></i>Streams online</span><span><i class="k-dot k-home"></i>Monticello (our church)</span></div>
+    <p class="map-help">Press a dot to see that church.</p>
+  </div>
+  <div id="results"></div>
+</div></section>
 
 <!-- TRIP -->
-<section class="panel" id="p-trip" hidden><div class="wrap">
-  <form class="trip" id="tripForm" autocomplete="off">
-    <div class="tf">
-      <label for="tFrom">Starting from</label>
-      <div class="ac"><input id="tFrom" type="text" placeholder="City or town, e.g. Lenexa" required><button type="button" class="here" id="tHere">Use my location</button><ul class="ac-list" id="acFrom" role="listbox" hidden></ul></div>
+<section class="panel" id="p-trip" hidden aria-labelledby="h-trip"><div class="wrap">
+  <div class="pnl-intro">
+    <h2 id="h-trip">Plan a trip</h2>
+    <p>Going on a trip? Fill in the steps below to see churches where you are going and churches along the way.</p>
+  </div>
+  <form class="trip" id="tripForm" autocomplete="off" novalidate>
+    <div class="step">
+      <label for="tFrom"><span class="num">1</span>Where are you starting from?</label>
+      <div class="ac"><input id="tFrom" type="text" placeholder="Town or city, like Lenexa"><ul class="ac-list" id="acFrom" role="listbox" hidden></ul></div>
+      <button type="button" class="linkbtn" id="tHere"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Use where I am now</button>
     </div>
-    <div class="tf">
-      <label for="tTo">Going to</label>
-      <div class="ac"><input id="tTo" type="text" placeholder="City or town, e.g. Orlando" required><ul class="ac-list" id="acTo" role="listbox" hidden></ul></div>
+    <div class="step">
+      <label for="tTo"><span class="num">2</span>Where are you going?</label>
+      <div class="ac"><input id="tTo" type="text" placeholder="Town or city, like Orlando"><ul class="ac-list" id="acTo" role="listbox" hidden></ul></div>
     </div>
-    <div class="tf tf-d">
-      <label for="tLeave">Leaving</label><input id="tLeave" type="date">
+    <div class="step">
+      <span class="lbl-s"><span class="num">3</span>What are your travel dates?</span>
+      <div class="dates">
+        <label for="tLeave">Leaving<input id="tLeave" type="date"></label>
+        <label for="tBack">Starting home <small>(the day you leave there, if you know)</small><input id="tBack" type="date"></label>
+      </div>
+      <p class="hint">Add your dates to see which services you can make.</p>
     </div>
-    <div class="tf tf-d">
-      <label for="tBack">Coming home <small>optional</small></label><input id="tBack" type="date">
-    </div>
-    <div class="tf tf-d">
-      <label for="tMiles">How far off the road</label>
+    <div class="step">
+      <label for="tMiles"><span class="num">4</span>How far off your route will you drive for church?</label>
       <select id="tMiles"><option value="25">Up to 25 miles</option><option value="50" selected>Up to 50 miles</option><option value="100">Up to 100 miles</option></select>
     </div>
-    <div class="tf tf-go"><button class="btn btn-primary" type="submit">Find churches</button></div>
+    <button class="btn btn-primary go" type="submit">Show churches for my trip</button>
   </form>
-  <p class="trip-msg" id="tripMsg" role="status"></p>
+  <div class="trip-msg" id="tripMsg" role="status"></div>
   <div id="tripOut"></div>
-  <p class="fine">"Along the way" means within the distance you chose of a straight line between your two cities, so check the map before you turn off. Call ahead to confirm service times.</p>
 </div></section>
 
 <section class="src-sec"><div class="wrap">
-  <p class="fine">Listings come from the Gospel Assembly church directory kept by The Church at Morley, gathered <time datetime="2026-11-08">November 8, 2026</time>. Something out of date? <a href="/contact">Let us know</a>.</p>
+  <p class="fine">Service times and addresses come from the Gospel Assembly church directory kept by The Church at Morley, gathered <time datetime="2026-11-08">November 8, 2026</time>. Times can change, so call ahead before you travel. Something wrong? <a href="/contact">Let us know</a>.</p>
 </div></section>
+<button type="button" class="totop" id="toTop" hidden>&uarr; Back to top</button>
 </main>
 
 <footer class="ftr"><div class="wrap">
@@ -146,6 +172,6 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserve
   document.querySelectorAll('[data-rise]').forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add('armed');io.observe(el)}});
 }
 </script>
-<script src="/churches.js" defer></script>
+<script src="/churches.js?v=46890beb" defer></script>
 </body>
 </html>

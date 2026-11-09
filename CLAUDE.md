@@ -45,7 +45,7 @@ If git ever shows a merge conflict, **stop** and tell Pastor Clark to text Joe. 
 - `site.css` — all the styling
 - `img/` — photos and logos
 - `post.html`, `api/`, `vercel.json`, `package.json` — the Studies posting tool. **Do not edit these.**
-- `churches.html`, `churches.js`, `churches.css`, `data/churches.json`, `data/us-map.json` — the Churches & Live Streams page (Joe built it 8 Nov 2026 from the Gospel Assembly directory at thechurchatmorley.org/directory). **Do not edit these.** If Pastor Clark asks to fix a church listing, tell him to text Joe. Joe rebuilds it from `~/gac-directory-scrape` (crawl.py, parse.py, streams.py, then `node build/structure.mjs && node build/gen.mjs`).
+- `churches.html`, `churches.js`, `churches.css`, `data/churches.json`, `data/us-map.json` — the Churches & Live Streams page (Joe built it 8 Nov 2026 from the Gospel Assembly directory at thechurchatmorley.org/directory). **Do not edit these.** If Pastor Clark asks to fix a church listing, tell him to text Joe. Joe rebuilds it from `~/gac-directory-scrape` (crawl.py, parse.py, streams.py, then `node build/structure.mjs && node build/gen.mjs`; gen runs `build/fixes.mjs`, the hand fixes for bad directory data like wrong map pins, cut-off overseas phone numbers and dead stream links).
 
 ## Things that appear on every page
 The phone number, service times, address and footer are written into **every** HTML page, plus:
