@@ -34,11 +34,11 @@
 }
 
 .panel{padding-block:20px 10px}
-.ph{font:700 26px/1.2 var(--serif);color:var(--ink);margin:22px 0 10px;display:flex;align-items:center;gap:10px}
+.pnl-h{font:700 26px/1.2 var(--serif);color:var(--ink);margin:22px 0 10px;display:flex;align-items:center;gap:10px}
 .cnt{font:700 14px/1 var(--sans);background:#FEECEB;color:#B42318;border-radius:999px;padding:5px 10px}
 .day-h{font:600 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:18px 2px 6px}
 .fine{margin-top:22px;color:var(--mute);font-size:14px;max-width:80ch}
-.more{display:block;margin:12px 0 0;border:2px solid var(--line);background:#fff;border-radius:12px;padding:12px 18px;font:600 16px/1 var(--sans);color:var(--navy);cursor:pointer}
+.morebtn{display:block;margin:12px 0 0;border:2px solid var(--line);background:#fff;border-radius:12px;padding:12px 18px;font:600 16px/1 var(--sans);color:var(--navy);cursor:pointer}
 .empty-res{background:var(--sky);border-radius:20px 20px 20px 6px;padding:18px 20px;color:var(--body);margin:6px 0}
 
 /* stream rows: the whole row is the link to the stream */
@@ -96,7 +96,7 @@
 .det .svc i{grid-column:1/-1;font-style:normal;color:var(--mute);font-size:15px}
 .det .ln{color:var(--body);font-size:16px}
 .det .sm{color:var(--mute);font-size:14px}
-.acts{display:flex;flex-wrap:wrap;gap:8px}
+.cacts{display:flex;flex-wrap:wrap;gap:8px}
 .sbtn{display:inline-flex;align-items:center;gap:7px;font:600 15px/1 var(--sans);padding:0 14px;height:44px;border-radius:12px;text-decoration:none;border:2px solid var(--line);color:var(--navy);background:#fff}
 .sbtn:hover{background:var(--sky)}
 .sbtn.watch{background:var(--navy);border-color:var(--navy);color:#fff}
@@ -142,6 +142,6 @@
 .trow2 .when{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 8px}
 .trow2 .when span{font:600 14px/1 var(--sans);padding:7px 10px;border-radius:999px;background:var(--sky);color:var(--navy)}
 .trow2 .when span.hit{background:#FBF0DC;color:var(--gold-t)}
-.trow2 .acts{grid-column:2}
+.trow2 .cacts{grid-column:2}
 @media (max-width:520px){.trow2{grid-template-columns:58px minmax(0,1fr)}}
 .src-sec{padding-block:0 40px}

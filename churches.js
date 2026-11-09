@@ -67,7 +67,7 @@ function acts(c, extra) {
   if (!extra && dirUrl(c)) a.push('<a class="sbtn" href="' + esc(dirUrl(c)) + '" target="_blank" rel="noopener">' + I.pin + "Directions</a>");
   if (!c.ls && c.fb) a.push('<a class="sbtn" href="' + esc(c.fb) + '" target="_blank" rel="noopener">' + I.play + "Facebook</a>");
   if (c.w) a.push('<a class="sbtn" href="' + esc(c.w) + '" target="_blank" rel="noopener">' + I.web + "Website</a>");
-  return '<div class="acts">' + a.join("") + "</div>";
+  return '<div class="cacts">' + a.join("") + "</div>";
 }
 const weekly = c => { const by = {}; c.sv.forEach(([d, t]) => (by[d] ||= []).push(t12(t))); return [0, 1, 2, 3, 4, 5, 6].filter(d => by[d]).map(d => DSH[d] + " " + by[d].join(" & ")); };
 
@@ -90,7 +90,7 @@ function renderWatch() {
   $("#liveN").textContent = live.length;
   $("#liveSub").textContent = live.length ? live.length + " streaming now" : "Streams now and coming up";
   $("#liveList").innerHTML = live.length ? '<div class="srows">' + live.map(x => sRow(x, true)).join("") + "</div>"
-    : '<div class="empty-res">No streams are on right now. ' + (up[0] ? "The next one starts " + esc(dayLabel(up[0].at).toLowerCase() === "today" ? "today" : dayLabel(up[0].at)) + " at " + esc(yourTime(up[0].at)) + "." : "") + "</div>";
+    : '<div class="empty-res">No streams are on right now. ' + (up[0] ? "The next one starts " + esc(/^(Today|Tomorrow)$/.test(dayLabel(up[0].at)) ? dayLabel(up[0].at).toLowerCase() : "on " + dayLabel(up[0].at)) + " at " + esc(yourTime(up[0].at)) + "." : "") + "</div>";
   const days = [];
   up.forEach(x => { const k = dayKey(x.at); let g = days.find(d => d.k === k); if (!g) days.push(g = { k, at: x.at, items: [] }); g.items.push(x); });
   $("#upList").innerHTML = days.slice(0, upDays).map(g => '<h3 class="day-h">' + esc(dayLabel(g.at)) + '</h3><div class="srows">' + g.items.map(x => sRow(x, false)).join("") + "</div>").join("");
@@ -263,9 +263,9 @@ function runTrip(e) {
     msg.innerHTML = "<b>" + esc(A.n) + " → " + esc(B.n) + "</b> · about " + Math.round(total * 1.2).toLocaleString() + " road miles" + (A.guessed || B.guessed ? " (check the towns are right)" : "") + ' · <a href="' + tripUrl + '" target="_blank" rel="noopener">Open in Google Maps</a>';
     const stop = c => '<a class="sbtn stop" href="' + tripUrl + "&waypoints=" + c.lat + "," + c.lon + '" target="_blank" rel="noopener">' + I.stop + "Add as a stop</a>";
     const tRow = (c, left, sub, chips) => '<article class="trow2"><span class="mile">' + left + "<small>" + sub + '</small></span><div><h3>' + esc(c.n) + '</h3><div class="meta">' + esc(place(c)) + (pastor(c) ? " · " + esc(pastor(c)) : "") + '</div><div class="when">' + chips + "</div>" + acts(c, stop(c)) + "</div></article>";
-    let h = '<h2 class="ph">At ' + esc(B.n.split(",")[0]) + ' <span class="cnt">' + there.length + "</span></h2>";
+    let h = '<h2 class="pnl-h">At ' + esc(B.n.split(",")[0]) + ' <span class="cnt">' + there.length + "</span></h2>";
     h += there.length ? there.map(x => tRow(x.c, Math.round(x.dB) + " mi", "from there", serviceChips(x.c, arrive, stayEnd, null))).join("") : '<div class="empty-res">No churches in the directory within ' + Math.max(radius, 40) + " miles of " + esc(B.n) + ". Look along the way below.</div>";
-    h += '<h2 class="ph">Along the way <span class="cnt">' + way.length + "</span></h2>";
+    h += '<h2 class="pnl-h">Along the way <span class="cnt">' + way.length + "</span></h2>";
     h += way.length ? way.map(x => { const day = leave != null ? leave + Math.min(driveDays - 1, Math.floor(Math.max(0, x.g.at) * 1.2 / 600)) * 864e5 : null; return tRow(x.c, "Mile " + Math.max(0, Math.round(x.g.at * 1.2)), Math.round(x.g.off) + " mi off", serviceChips(x.c, leave, arrive, day)); }).join("")
       : '<div class="empty-res">No churches within ' + radius + " miles of your route. Try a wider distance.</div>";
     $("#tripOut").innerHTML = h;
