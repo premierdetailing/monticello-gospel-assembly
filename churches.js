@@ -62,7 +62,7 @@ const I = {
 function acts(c, extra) {
   const a = [];
   if (extra) a.push(extra);
-  if (c.ls) a.push('<a class="sbtn watch" href="' + esc(c.ls) + '" target="_blank" rel="noopener">' + I.play + "Watch on " + watchName(c.ls) + "</a>");
+  if (c.ls) a.push('<a class="sbtn watch" href="' + esc(c.ls) + '" target="_blank" rel="noopener">' + I.play + (watchName(c.ls) === "Watch" ? "Watch live" : "Watch on " + watchName(c.ls)) + "</a>");
   if (c.ph) a.push('<a class="sbtn" href="tel:+1' + esc(c.ph) + '">' + I.phone + telFmt(c.ph) + "</a>");
   if (!extra && dirUrl(c)) a.push('<a class="sbtn" href="' + esc(dirUrl(c)) + '" target="_blank" rel="noopener">' + I.pin + "Directions</a>");
   if (!c.ls && c.fb) a.push('<a class="sbtn" href="' + esc(c.fb) + '" target="_blank" rel="noopener">' + I.play + "Facebook</a>");
@@ -266,7 +266,17 @@ function runTrip(e) {
     let h = '<h2 class="pnl-h">At ' + esc(B.n.split(",")[0]) + ' <span class="cnt">' + there.length + "</span></h2>";
     h += there.length ? there.map(x => tRow(x.c, Math.round(x.dB) + " mi", "from there", serviceChips(x.c, arrive, stayEnd, null))).join("") : '<div class="empty-res">No churches in the directory within ' + Math.max(radius, 40) + " miles of " + esc(B.n) + ". Look along the way below.</div>";
     h += '<h2 class="pnl-h">Along the way <span class="cnt">' + way.length + "</span></h2>";
-    h += way.length ? way.map(x => { const day = leave != null ? leave + Math.min(driveDays - 1, Math.floor(Math.max(0, x.g.at) * 1.2 / 600)) * 864e5 : null; return tRow(x.c, "Mile " + Math.max(0, Math.round(x.g.at * 1.2)), Math.round(x.g.off) + " mi off", serviceChips(x.c, leave, arrive, day)); }).join("")
+    h += way.length ? way.map(x => {
+      const day = leave != null ? leave + Math.min(driveDays - 1, Math.floor(Math.max(0, x.g.at) * 1.2 / 600)) * 864e5 : null;
+      let chips;
+      if (day == null) chips = serviceChips(x.c, null);
+      else {
+        const wd = new Date(day).getUTCDay(), on = x.c.sv.filter(s => s[0] === wd && !s[2]);
+        chips = on.length ? on.map(s => '<span class="hit">' + esc(dLabel(day)) + " · " + esc(t12(s[1])) + "</span>").join("") + "<span>You'd pass by about then</span>"
+          : "<span>No service " + esc(dLabel(day)) + ", the day you'd pass</span>" + weekly(x.c).map(w => "<span>" + esc(w) + "</span>").join("");
+      }
+      return tRow(x.c, "Mile " + Math.max(0, Math.round(x.g.at * 1.2)), Math.round(x.g.off) + " mi off", chips);
+    }).join("")
       : '<div class="empty-res">No churches within ' + radius + " miles of your route. Try a wider distance.</div>";
     $("#tripOut").innerHTML = h;
     store.set("trip", { f: [$("#tFrom").value, $("#tFrom").dataset.lat, $("#tFrom").dataset.lon], t: [$("#tTo").value, $("#tTo").dataset.lat, $("#tTo").dataset.lon], l: $("#tLeave").value, b: $("#tBack").value, m: $("#tMiles").value });
