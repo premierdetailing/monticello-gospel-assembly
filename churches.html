@@ -47,53 +47,37 @@
   <nav class="nav" id="nav1" aria-label="Main"><a href="/">Home</a><a href="/visit">Visit</a><a href="/believe">Beliefs</a><a href="/studies">Studies</a><a href="/churches" aria-current="page">Churches</a><a href="/shop">Shop</a><a href="/contact">Contact</a></nav>
 </div></header>
 <main id="main">
-<div class="ph-head"><div class="wrap">
-  <div>
-    <h1>Churches &amp; live streams</h1>
-    <p class="lede">Find a Gospel Assembly church near you, or watch a service as it happens.</p>
-  </div>
-  <div class="times now-box" aria-live="polite">
-    <div class="trow"><b>Your time</b><strong id="nowClock">&nbsp;</strong></div>
-    <div class="trow"><b id="liveCountLbl">Live now</b><strong id="liveCount">·</strong></div>
-  </div>
+<div class="ch-top"><div class="wrap">
+  <h1>Churches &amp; live streams</h1>
+  <p class="ch-lede"><span id="totalCount">382</span> Gospel Assembly churches. <a href="#" data-tab="live" class="live-link"><span class="dot-live"></span><span id="liveCountTop">0</span> in service right now</a></p>
 </div></div>
 
-<section class="live-sec"><div class="wrap">
-  <div class="sec-head">
-    <h2 class="h2" id="liveTitle">Live right now</h2>
-    <p class="sub" id="liveSub">Services happening at this moment, in each church's own time zone.</p>
-  </div>
-  <div class="live-grid" id="liveGrid"></div>
-  <h3 class="h3 up-h">Coming up</h3>
-  <ol class="upnext" id="upNext"></ol>
-  <p class="fine">Times on this page are shown in your time zone. A service counts as live for two hours after it starts.</p>
-</div></section>
-
-<section class="alt find-sec" id="find"><div class="wrap">
-  <div class="sec-head">
-    <h2 class="h2">Find a church</h2>
-    <p class="sub"><span id="totalCount">300+</span> churches in <span id="stateCount">35</span> states and <span id="countryCount">20</span> other countries.</p>
-  </div>
-  <div class="finder" role="search">
+<div class="ch-bar" id="bar"><div class="wrap">
+  <div class="ch-row">
     <label class="f-q"><span class="vh">Search churches</span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="City, church, or pastor">
+      <input id="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Search a city, church, or pastor">
     </label>
     <label class="f-s"><span class="vh">State or country</span><select id="state"><option value="">All places</option></select></label>
-    <button class="chip" type="button" id="onlyLive" aria-pressed="false">Has a live stream</button>
-    <button class="chip" type="button" id="nearMe" aria-pressed="false">Near me</button>
   </div>
-  <div class="map-wrap" id="mapWrap" aria-label="Map of churches in the United States">
-    <svg id="usmap" viewBox="0 0 975 610" role="img" aria-labelledby="mapT"><title id="mapT">Gospel Assembly churches across the United States</title><path id="land"/><path id="borders"/><g id="dots"></g></svg>
-    <div class="map-key"><span><i class="k-dot"></i>Church</span><span><i class="k-dot k-live"></i>Watch online</span><span><i class="k-dot k-home"></i>Monticello</span></div>
+  <div class="tabs" role="tablist" aria-label="Show">
+    <button role="tab" data-tab="all" aria-selected="true">All</button>
+    <button role="tab" data-tab="live" aria-selected="false">Live now <b id="liveCount">0</b></button>
+    <button role="tab" data-tab="watch" aria-selected="false">Watch online</button>
+    <button role="tab" data-tab="near" aria-selected="false">Near me</button>
+    <button role="tab" data-tab="map" aria-selected="false">Map</button>
   </div>
-  <p class="result-line" id="resultLine" aria-live="polite"></p>
-  <div id="results"></div>
-</div></section>
+  <nav class="jump" id="jump" aria-label="Jump to a state"></nav>
+</div></div>
 
-<section class="lit"><div class="wrap src-note">
-  <h2 class="h2">About these listings</h2>
-  <p class="sub">Church details come from the Gospel Assembly church directory kept by The Church at Morley, last gathered <time datetime="2026-11-08">November 8, 2026</time>. Service times change, so call ahead before you travel. If something here is out of date, <a href="/contact">let us know</a>.</p>
+<section class="ch-list"><div class="wrap">
+  <p class="result-line" id="resultLine" aria-live="polite"></p>
+  <div class="map-wrap" id="mapWrap" hidden>
+    <svg id="usmap" viewBox="0 0 975 610" role="img" aria-labelledby="mapT"><title id="mapT">Gospel Assembly churches across the United States</title><path id="land"/><path id="borders"/><g id="dots"></g></svg>
+    <div class="map-key"><span><i class="k-dot"></i>Church</span><span><i class="k-dot k-live"></i>Watch online</span><span><i class="k-dot k-home"></i>Monticello</span><span>Tap a dot to open that church.</span></div>
+  </div>
+  <div id="results"></div>
+  <p class="fine">Times are each church's local time unless marked "your time." Listings come from the Gospel Assembly church directory kept by The Church at Morley, gathered <time datetime="2026-11-08">November 8, 2026</time>. Call ahead before you travel. Something out of date? <a href="/contact">Let us know</a>.</p>
 </div></section>
 </main>
 
