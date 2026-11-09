@@ -6,7 +6,11 @@
 .chp a{color:var(--navy-2)}
 .ch-top{background:var(--navy);color:#DCE4F0;padding-block:1.6rem 4.4rem}
 .ch-top h1{color:#fff;font-size:clamp(2rem,4.6vw,2.9rem)}
-.ch-lede{margin-top:.4rem;font-size:1.2rem;max-width:40ch}
+.ch-lede{margin-top:.4rem;font-size:1.2rem;max-width:46ch}
+.ch-tag{display:inline-block;margin:0 0 .7rem;padding:.45rem .85rem;border-radius:999px;background:var(--gold);color:var(--ink);font:800 .9rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase}
+.ch-own{margin-top:.9rem;max-width:52ch;padding:.75rem 1rem;border-radius:.9rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);font-size:1.05rem;color:#E6ECF5}
+.ch-own b{color:#fff}
+.chp .ch-own a{color:#fff;font-weight:700;white-space:nowrap}
 .tsz{display:flex;align-items:center;gap:.4rem;margin-top:1rem;flex-wrap:wrap}
 .tsz span{font:600 1rem/1 var(--sans);margin-right:.2rem}
 .tsz button{all:unset;box-sizing:border-box;cursor:pointer;min-width:3rem;height:3rem;display:grid;place-items:center;border-radius:.75rem;border:2px solid rgba(255,255,255,.35);color:#fff;font-family:var(--serif);font-weight:700}
