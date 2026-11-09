@@ -497,3 +497,28 @@ main>section:not(.alt)>*{position:relative;z-index:1}
 @media (max-width:520px){.beliefs li a:has(.soon){flex-wrap:wrap}}
 /* 27 Oct: no dotted vertical line in Our pastors on phones */
 @media (max-width:640px){.line::before{display:none}}
+/* 9 Nov: home page "Churches & live streams" section. Three big doors into /churches, plus a live line (counts only, no church names) */
+.st-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:48px;align-items:center}
+.st-p{margin-top:14px;font-size:19px;color:var(--ink);max-width:40ch}
+.st-live{display:inline-flex;align-items:center;gap:10px;margin:0 0 16px;text-decoration:none;padding:9px 16px;border-radius:999px;background:#fff;color:var(--ink);font:700 16px/1.2 var(--sans);box-shadow:0 8px 18px -12px rgba(27,53,96,.5)}
+.st-live[hidden]{display:none}
+.st-live.on{background:#B42318;color:#fff}
+.st-dot{flex:none;width:11px;height:11px;border-radius:50%;background:var(--navy-2)}
+.st-live.on .st-dot{background:#fff;animation:stpulse 1.8s infinite}
+@keyframes stpulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}70%{box-shadow:0 0 0 9px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+@media (prefers-reduced-motion:reduce){.st-live.on .st-dot{animation:none}}
+.st-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.st-card{display:flex;flex-direction:column;gap:8px;padding:26px 22px 24px;border-radius:28px 28px 28px 8px;background:linear-gradient(160deg,#fff 0%,#F7FAFD 100%);box-shadow:inset 0 0 0 2px #fff,0 24px 46px -36px rgba(27,53,96,.6);text-decoration:none;color:var(--ink);transition:transform .2s,box-shadow .2s}
+.st-card:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 2px #fff,0 30px 50px -34px rgba(27,53,96,.7)}
+.st-card:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.st-card b{font:700 23px/1.2 var(--serif);color:var(--ink)}
+.st-card .st-d{font-size:17px;line-height:1.45;color:var(--body)}
+.st-card i{margin-top:auto;padding-top:10px;font:700 16px/1 var(--sans);font-style:normal;color:var(--navy-2)}
+.st-ic{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--sky);color:var(--navy);margin-bottom:6px}
+.st-ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2}
+.st-card.st-watch{background:radial-gradient(ellipse 80% 90% at 0% 0%,rgba(255,255,255,.12),transparent 65%),linear-gradient(140deg,var(--navy-2) 0%,var(--navy) 70%);box-shadow:0 24px 50px -30px rgba(27,53,96,.8)}
+.st-watch b{color:#fff}.st-watch .st-d{color:#D6DFEC}.st-watch i{color:#fff}
+.st-watch .st-ic{background:rgba(255,255,255,.14);color:#fff}
+.st-watch .st-ic::before{content:"";width:14px;height:14px;border-radius:50%;background:#E5483A;box-shadow:0 0 0 4px rgba(229,72,58,.25)}
+@media (max-width:900px){.st-wrap{grid-template-columns:1fr;gap:28px}}
+@media (max-width:700px){.st-cards{grid-template-columns:1fr}.st-card{flex-direction:row;flex-wrap:wrap;align-items:center;column-gap:16px;padding:20px}.st-ic{margin:0}.st-card b{flex:1 1 0;font-size:22px}.st-card .st-d{flex-basis:100%}.st-card i{padding-top:4px}}
